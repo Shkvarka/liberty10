@@ -61,6 +61,8 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
       - name: list files
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
         run: |
             cd .lighthouseci
             ls -a
