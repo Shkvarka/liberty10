@@ -50,3 +50,18 @@ jobs:
         with:
           args: deploy --dir=web/public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID","SANITY_DEPLOY_STUDIO_TOKEN"]'
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Lighthouse on urls and validate with lighthouserc
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: 'https://exterkamp.codes/' # LIST OF URLs hosted on netlify to be tested goes here
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      - name: list files
+        run: |
+            cd .lighthouseci
+            ls -a
+            echo "$NETLIFY_SITE_ID"
