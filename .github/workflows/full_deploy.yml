@@ -57,10 +57,13 @@ jobs:
       - name: Run Lighthouse on urls and validate with lighthouserc
         uses: treosh/lighthouse-ci-action@v2
         with:
-          urls: ${{ secrets.NETLIFY_WEB_SITE_ID }} # LIST OF URLs hosted on netlify to be tested goes here
+          urls: 'http://epic-thompson-4710e6.netlify.app' # LIST OF URLs hosted on netlify to be tested goes here
           uploadArtifacts: true
           temporaryPublicStorage: true
       - name: list files
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
         run: |
             cd .lighthouseci
             ls -a
+            echo "$NETLIFY_SITE_ID"
