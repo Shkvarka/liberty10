@@ -69,6 +69,6 @@ jobs:
             ls -a
             echo "### start"
             echo "deploy-url: $deploy-url"
-            echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
+            echo "NETLIFY_LIVE_URL : $NETLIFY_LIVE_URL"
             echo "### end"
 
