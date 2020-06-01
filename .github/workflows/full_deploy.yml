@@ -57,7 +57,8 @@ jobs:
       - name: Run Lighthouse on urls and validate with lighthouserc
         uses: treosh/lighthouse-ci-action@v2
         with:
-          urls: 'http://epic-thompson-4710e6.netlify.app' # LIST OF URLs hosted on netlify to be tested goes here
+#           urls: 'http://epic-thompson-4710e6.netlify.app' # LIST OF URLs hosted on netlify to be tested goes here
+          urls: $NETLIFY_SITE_ID
           uploadArtifacts: true
           temporaryPublicStorage: true
       - name: list files
@@ -70,7 +71,4 @@ jobs:
             echo "deploy-url: $deploy-url"
             echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
             echo "### end"
-      - name: netlify
-        uses: netlify/actions/cli@master
-      - name: getting site URLs
-        run: netlify sites:list
+
