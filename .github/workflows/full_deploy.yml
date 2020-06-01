@@ -70,3 +70,7 @@ jobs:
             echo "deploy-url: $deploy-url"
             echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
             echo "### end"
+      - name: netlify
+        uses: netlify/actions/cli@master
+      - name: getting site URLs
+        run: netlify sites:list
