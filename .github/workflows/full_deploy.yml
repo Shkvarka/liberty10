@@ -67,3 +67,4 @@ jobs:
             cd .lighthouseci
             ls -a
             echo "$deploy-url"
+            echo "$NETLIFY_SITE_ID"
