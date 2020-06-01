@@ -66,5 +66,7 @@ jobs:
         run: |
             cd .lighthouseci
             ls -a
-            echo "$deploy-url"
-            echo "$NETLIFY_SITE_ID"
+            echo "### start"
+            echo "deploy-url: $deploy-url"
+            echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
+            echo "### end"
