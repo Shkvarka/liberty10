@@ -62,12 +62,13 @@ jobs:
           temporaryPublicStorage: true
       - name: list files
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
+          NETLIFY_SITE_URL: ${{ steps.netlify-deploy.outputs.deploy-url }}
         run: |
             cd .lighthouseci
             ls -a
             echo "### start"
             echo "deploy-url: $deploy-url"
-            echo "NETLIFY_LIVE_URL : $NETLIFY_LIVE_URL"
+            echo "NETLIFY_SITE_URL : $NETLIFY_SITE_URL"
             echo "### end"
+
 
